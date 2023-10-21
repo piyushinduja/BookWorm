@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+            margin: 10px;
+        }
+
+        marquee{
+            font-size: large;
+            margin-top: 20px;
+        }
+
+        #sell_content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #sell_content p{
+            font-size: x-large;
+            text-align: center;
+            margin: 30px 0px;
+        }
+        #sell_content span{
+            font-size: x-large;
+            font-size: x-large;
+            margin: 20px 0px 20px 50px;
+        }
+        #sell_form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: var(--secondaryColor);
+            border-radius: 20px;
+            font-size: large;
+            margin: 20px;
+            width: 50%;
+        }
+        #sell_form select,label,input{
+            display: inline;
+            /* margin: 10px; */
+            width: 50%;
+            height: 40px;
+            border-radius: 5px;
+            outline: none;
+            /* color: var(--bgColor); */
+        }
+        #sell_form label{
+            color: var(--bgColor);
+            height: 30px;
+        }
+        #submit_form{
+            background-color: var(--primaryColor);
+            color: var(--bgColor);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favourites">My Favourites</a></li>
+            <li><a href="/buy">Buy books</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <span>
+            <% if(username.length == 0){ %> 
+                <a href="/login">Greetings, User</a>
+            <% }else{ %>
+                <a href="/login">Greetings, <%= username %> </a>
+            <% } %> 
+        </span>
+    </nav>
+    <marquee behavior="alternate" direction="right">You can also donate your books through us. <a href="/contact">Contact Us to donate now</a></marquee>
+    <section id="sell_content">
+        <p>Done reading your book? Give someone else an oppurtunity to read it.....</p>
+        <span>
+            Please enter some details of your book:
+        </span>
+        <form action="/sell" method="POST" id="sell_form" enctype="multipart/form-data">
+            <label for="book_name">Name of the Book: </label>
+            <input type="text" name="bookName" id="book_name" required>
+            <br>
+            <label for="book_genre">Genre Of the Book: </label>
+            <select name="bookGenre" class="form-select" aria-label="Default select example" required>
+                <option selected>Select one of the following</option>
+                <option value="Comic">Comic</option>
+                <option value="Drama">Drama</option>
+                <option value="Novel">Novel</option>
+                <option value="Dictionary">Dictionary</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Biography">Biography</option>
+                <option value="Autobiography">Autobiography</option>
+                <option value="Myth">Myth</option>
+                <option value="Fairy Tales">Fairy Tale</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Horror">Horror</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
+            <label for="book_condition">Condition Of the Book: </label>
+            <select name="bookCondition" class="form-select" aria-label="Default select example" required>
+                <option selected>Select one of the following</option>
+                <option value="New">New</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Usable">Usable</option>
+            </select>
+            <br>
+            <label for="book_price">Price at which you would like to sell (&#8377): </label>
+            <input type="number" name="bookPrice" id="book_price" required>
+            <br>
+            <!-- <div class="mb-3"> -->
+            <label for="formFile" class="form-label">Upload a photo of cover page of the book:</label>
+            <input class="form-control" type="file" name="bookImage" accept="image/*" id="formFile" style="width: 50%;" required>
+            <!-- </div> -->
+            <br>
+            <label for="book_seller">Seller Name: </label>
+            <input type="text" name="bookSeller" id="book_seller" placeholder="Seller Name" required>
+            <br>
+            <label for="seller_mob">Mobile Number: </label>
+            <input type="number" name="sellerMob" id="seller_mob" placeholder="Enter your Mobile Number" required>
+            <br>
+            <input type="submit" id="submit_form" value="Sell Book">
+        </form>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+        }
+        #contact {
+            /* border: 2px solid black; */
+            height: 400px;
+            margin: 10px;
+            width: 98%;
+            color: var(--secondaryColor);
+            display: grid;
+            grid-template-areas:
+                "contacthead contacthead"
+                "owner1 owner2";
+        }
+
+        #contacthead {
+            grid-area: contacthead;
+            text-align: center;
+            margin: auto 30px auto;
+        }
+
+        #owner1 {
+            grid-area: owner1;
+            margin: auto;
+            border: 5px solid var(--secondaryColor);
+            border-radius: 10px;
+        }
+
+        #owner2 {
+            grid-area: owner2;
+            margin: auto;
+            border: 5px solid var(--secondaryColor);
+            border-radius: 10px;
+        }
+
+        .contactimg {
+            height: 200px;
+            width: 200px;
+            padding: 15px 25px;
+            margin-left: 20px;
+            border-radius: 30px;
+        }
+
+        .continfo {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favourites">My Favourites</a></li>
+            <li><a href="/buy">Buy Books</a></li>
+            <li><a href="/sell">Sell Books</a></li>
+        </ul>
+        <span><a href="login.html">Greetings, Piyush Hinduja</a></span>
+    </nav>
+    <div id="contact">
+        <div id="contacthead">
+            <h1>Contact Us</h1>
+        </div>
+        <div id="owner1">
+            <img src="photos/owner1.jpg" alt="Piyush Hinduja" class="contactimg">
+            <p class="continfo"><strong>Piyush Hinduja</strong></p>
+            <p class="continfo">Mobile No. - 9082253040</p>
+            <p class="continfo">Mail - piyushinduja47@gmail.com</p>
+            <p class="continfo">Instagram - piyushinduja</p>
+        </div>
+        <div id="owner2">
+            <img src="photos/owner2.jpg" alt="Khushal Dodeja" class="contactimg">
+            <p class="continfo"><strong>Khushal Dodeja</strong></p>
+            <p class="continfo">Mobile No. - 8380848847</p>
+            <p class="continfo">Mail - dodejakhushal@gmail.com</p>
+            <p class="continfo">Instagram - dodejakhushal_21</p>
+        </div>
+    </div>
+</body>
+</html>

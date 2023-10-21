@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+            /* font-family: 'Caveat', cursive; */
+            font-weight:bolder;
+            margin: 10px;
+            flex-wrap: wrap;
+        }
+
+        #genres_div {
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            margin: 20px auto;
+            /* border: 2px solid var(--primaryColor); */
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .genre {
+            color: var(--primaryColor);
+            text-decoration: none;
+        }
+
+        .genre:hover {
+            color: var(--bgColor);
+            padding: 20px;
+        }
+
+        #genres_div section {
+            border: 2px dashed var(--primaryColor);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            width: 200px;
+            font-size: x-large;
+            margin: 15px;
+            padding: 10px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            transition: 0.5s all;
+        }
+
+        #genres_div section:hover {
+            background-color: var(--primaryColor);
+            cursor: pointer;
+        }
+        
+        #genres_div section:hover a{
+            color: var(--bgColor);
+
+        }
+
+        #genres_img{
+            display: block;
+            margin: 10px auto;
+            height: 250px;
+            width: 350px;
+            border: 5px double var(--primaryColor);
+            border-top-left-radius: 30px;
+            border-bottom-right-radius:30px  ;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favourites">My Favourites</a></li>
+            <li><a href="/sell">Sell books</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <span>Greetings, Piyush Hinduja</span>
+    </nav>
+    <img src="/photos/genres.jpg" alt="" id="genres_img">
+    <marquee behavior="alternate" direction="right" class="funfact">Did You Know? Reading for 6 minutes a day reduces stress by 68%</marquee>
+    <h2 style="margin-left: 30px;">Select a genre:</h2>
+    <div id="genres_div">
+        <section><a href="/buy/Comic" class="genre">Comics</a></section>
+        <section><a href="/buy/Novel" class="genre">Novels</a></section>
+        <section><a href="/buy/Dictionary" class="genre">Dictionaries</a></section>
+        <section><a href="/buy/Drama" class="genre">Drama</a></section>
+        <section><a href="/buy/Fiction" class="genre">Fiction</a></section>
+        <section><a href="/buy/Non%2DFiction" class="genre">Non-Fiction</a></section>
+        <section><a href="/buy/Biography" class="genre">Biographies</a></section>
+        <section><a href="/buy/Autobiography" class="genre">Autobiographies</a></section>
+        <section><a href="/buy/Myth" class="genre">Myth</a></section>
+        <section><a href="/buy/Fairy%20Tales" class="genre">Fairy Tales</a></section>
+        <section><a href="/buy/Thriller" class="genre">Thriller</a></section>
+        <section><a href="/buy/Horror" class="genre">Horror</a></section>
+        <section><a href="/buy/Other" class="genre">Others</a></section>
+    </div>
+</body>
+
+</html>

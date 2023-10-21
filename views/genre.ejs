@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= genre %> </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #title {
+            display: grid;
+            grid-template-areas:
+                "title title img"
+                "text text img";
+            margin: 10px;
+        }
+
+        #title p {
+            grid-area: text;
+            line-height: 2em;
+        }
+
+        #title h1 {
+            grid-area: title;
+            color: var(--secondaryColor);
+        }
+
+        #title img {
+            grid-area: img;
+            width: 350px;
+            height: 250px;
+            margin: 10px;
+            border: 5px double var(--primaryColor);
+            border-radius: 10px;
+        }
+
+        #content table {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        table td,
+        th {
+            margin: 12px;
+            font-size: large;
+            /* border-right: 1px solid black; */
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        table th {
+            color: var(--secondaryColor);
+        }
+
+        table tr{
+            height: 200px;
+        }
+
+        .bookImg img{
+            grid-area: bookImg;
+            height: 180px;
+            width: 150px;
+            border: 5px solid var(--secondaryColor);
+        }
+        .bookName{
+            width: 25%;
+        }
+
+        table a {
+            padding: 4px;
+            border: 2px solid var(--primaryColor);
+            border-radius: 5px;
+            color: var(--primaryColor);
+            text-decoration: none;
+            transition: all 0.4s;
+        }
+
+        table a:hover {
+            color: var(--secondaryColor);
+            background-color: var(--secondaryColor);
+            color: var(--bgColor);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="/photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favourites">My Favourites</a></li>
+            <li><a href="/sell">Sell Books</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <span>
+            <% if(username.length == 0){ %> 
+                <a href="/login">Greetings, User</a>
+            <% }else{ %>
+                <a href="/login">Greetings, <%= username %> </a>
+            <% } %> 
+        </span>
+    </nav>
+    <section id="title">
+        <h1><%= genre %> </h1>
+        <p><%= genreDescription %> </p>
+        <img src="/photos/<%= genre %>.jpg" alt="Genre Img"> 
+    </section>
+    <div id="content">
+        <table>
+            <tr>
+                <th class="sr_no">Sr. No.</th>
+                <th class="bookImg">Book Photo</th>
+                <th class="bookName">Name</th>
+                <th class="bookCondition">Condition</th>
+                <th class="soldBy">Sold By</th>
+                <th class="bookPrice">Price</th>
+                <th></th>
+            </tr>
+            <% var i=1 %>
+            <% genreBooks.forEach(element => { %>
+                <tr>
+                    <td class="sr_no"><%= i %></td>
+                    <td class="bookImg"><img src="/uploads/<%= element.image %>" alt=""></td>
+                    <td class="bookName"><%= element.bookName %></td>
+                    <td class="bookCondition"><%= element.bookCondition %></td>
+                    <td class="soldBy"><%= element.sellerName %></td>
+                    <td class="bookPrice">&#8377 <%= element.bookPrice %></td>
+                    <td class="favButton"><a onclick="addToFav()" href="/favourites/<%= element._id %>?_method=PUT">Add To Favourites</a></td>
+                </tr>
+            <% i=i+1 %>
+            <% }); %> 
+        </table>
+    </div>
+</body>
+
+</html>

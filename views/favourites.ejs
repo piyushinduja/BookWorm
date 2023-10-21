@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+            width: 98%;
+        }
+        table{
+            width: 100%;
+            margin: 30px;
+        }
+        #favTitle{
+            margin: 20px 30px;
+        }
+        .bookImg img{
+            grid-area: bookImg;
+            height: 150px;
+            width: 125px;
+            border: 4px solid var(--secondaryColor);
+            border-radius: 5px;
+        }
+        .bookName{
+            /* grid-area: bookName; */
+            width: 25%;
+        }
+        table th,td, tr{
+            text-align: center;
+            margin-top: 100px;
+        }
+        table a {
+            padding: 4px;
+            border: 2px solid var(--primaryColor);
+            border-radius: 5px;
+            color: var(--primaryColor);
+            text-decoration: none;
+            transition: all 0.4s;
+            text-align: center;
+            margin: auto;
+        }
+
+        table a:hover {
+            color: var(--secondaryColor);
+            background-color: var(--secondaryColor);
+            color: var(--bgColor);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/buy">Buy Books</a></li>
+            <li><a href="/sell">Sell Books</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <span>
+            <% if(userEmail.length == 0){ %> 
+                <a href="/login">Greetings, User</a>
+            <% }else{ %>
+                <a href="/login">Greetings, <%= userEmail %> </a>
+            <% } %> 
+        </span>
+    </nav>
+    <h2 id="favTitle">All your favourite books are listed below:</h2>
+    <!-- <marquee behavior="alternate" direction="right" class="funfact">Did You Know? Abibliophobia is the fear of running out of reading material</marquee> -->
+    <table>
+        <tr>
+            <th>Sr. No.</th>
+            <th>Book Image</th>
+            <th>Book Name</th>
+            <th>Price</th>
+            <th>Seller Name</th>
+            <th>Seller Contact</th>
+            <th></th>
+        </tr>
+        <% var i = 1 %>
+        <% favBooks.forEach(element => { %>   
+        <tr>
+            <td><%= i %> </td>
+            <td class="bookImg"><img src="/uploads/<%= element.image %>" alt=""></td>
+            <td><%= element.bookName %></td>
+            <td>&#8377 <%= element.bookPrice %></td>
+            <td><%= element.sellerName %> </td>
+            <td><%= element.sellerMob %> </td>
+            <td><a href="/removeBook/<%= element._id %> " onclick="">Remove from List</a></td>
+        </tr>
+        <% i = i+ 1; %> 
+        <% }); %>
+    </table>
+</body>
+</html>

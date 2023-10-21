@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWorm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <!-- <link rel="stylesheet" href="/css/main.css"> -->
+
+    <style>
+        * {
+            --bgColor: #D3E697;
+            --primaryColor: #8AA323;
+            --secondaryColor: #74673D;
+        }
+
+        body {
+            background-color: var(--bgColor);
+            color: var(--primaryColor);
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .welcome {
+            margin: 40px 0px;
+            color: var(--primaryColor);
+            text-align: center;
+        }
+
+        .carousel {
+            background-color: var(--primaryColor);
+            margin: 10px 5px;
+            border-top-left-radius: 50px;
+            color: var(--bgColor);
+        }
+
+        .carousel-item span {
+            font-family: 'Satisfy', cursive;
+            height: 200px;
+            text-align: center;
+            margin-top: 100px;
+            font-size: xx-large;
+        }
+
+        #buy {
+            background-color: var(--secondaryColor);
+            margin: 10px 5px;
+            height: 200px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        #buy a {
+            color: var(--bgColor);
+            /* width: 450px;  //if we dont want buy img to move define width of text */ 
+            font-size: x-large;
+            text-decoration: none;
+            transition: all 0.5s;
+            box-sizing: border-box;
+        }
+
+        #buy a:hover {
+            font-size: 26px;
+            text-decoration: underline;
+        }
+
+        #buy img {
+            transform: rotate(5deg);
+            border-radius: 5px;
+        }
+
+        #sell {
+            background-color: var(--primaryColor);
+            margin: 10px 5px;
+            height: 200px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-bottom-right-radius: 50px;
+        }
+
+        #sell a {
+            color: var(--bgColor);
+            font-size: x-large;
+            text-decoration: none;
+            transition: all 0.5s;
+            box-sizing: border-box;
+        }
+
+        #sell a:hover {
+            font-size: 26px;
+            text-decoration: underline;
+        }
+
+        #sell img {
+            transform: rotate(-5deg);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="photos/logo.svg" alt="">
+        <span style="margin-left: 10px; margin-right: 160px;">BookWorm.com</span>
+        <ul>
+            <li><a href="/main">Home</a></li>
+            <li><a href="/favourites">My Favourites</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <span>
+            <% if(username.length == 0){ %> 
+                <a href="/login">Greetings, User</a>
+            <% }else{ %>
+                <a href="/login">Greetings, <%= username %> </a>
+            <% } %> 
+        </span>
+    </nav>
+    <h1 class="welcome">BookWorm.com</h1>
+    <h3 class="welcome">Best place to sell or buy your books</h3>
+
+    <section id="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <span class="d-block w-100">A book is a gift you can open again and again. <br> -Garrison
+                        Keillor</span>
+                </div>
+                <div class="carousel-item">
+                    <span class="d-block w-100">A home without books is a body without soul. <br> -Marcus Tullius
+                        Cicero</span>
+                </div>
+                <div class="carousel-item">
+                    <span class="d-block w-100">When you read a book you hold another's mind in your hand. <br> -James
+                        Bruke</span>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <section id="buy">
+        <a href="/buy">Add Books to your Collection</a>
+        <img src="photos/buy.png" alt="" height="150px" width="210px">
+    </section>
+    <section id="sell">
+        <img src="photos/sell.png" alt="" height="150px" width="210px">
+        <a href="/sell">Sell Books from your Collection</a>
+    </section>
+
+    <footer>
+        <p style="text-align: center;">All Rights Reserved. &copy 2021 BookWorm</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
