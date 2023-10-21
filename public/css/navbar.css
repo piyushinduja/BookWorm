@@ -1,0 +1,72 @@
+* {
+    --bgColor: #D3E697;
+    --primaryColor: #8AA323;
+    --secondaryColor: #74673D;
+}
+
+nav {
+    margin: 2px;
+    background-color: var(--secondaryColor);
+    display: flex;
+    border-radius: 10px;
+}
+
+nav ul {
+    margin: 10px auto;
+    display: flex;
+}
+
+nav ul li {
+    padding: 10px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--bgColor);
+    font-size: large;
+    transition: 0.5s all;
+}
+nav ul a:hover{
+    font-size: 20px;
+    text-decoration: underline;
+    color: var(--bgColor);
+}
+
+nav span {
+    margin: auto;
+    margin-right: 30px;
+    font-size: large;
+    color: var(--bgColor);
+    box-sizing: border-box;
+}
+
+nav span a{
+    color: var(--bgColor);
+    text-decoration: none;
+    transition: 0.5s all;
+}
+
+nav span a:hover{
+    text-decoration: underline;
+    color: var(--bgColor);
+    font-size: 20px;
+}
+
+.logo{
+    color: var(--bgColor);
+    height: 60px;
+    width: 60px;
+    margin-left: 10px;
+}
+
+.funfact{
+    background-color: var(--secondaryColor);
+    color: var(--bgColor);
+    height: 30px;
+    font-size: large;
+    padding-top: 7px;
+    margin: auto 5px;
+    border-radius: 10px;
+}
